@@ -24,14 +24,16 @@ exists(path_to_pdf)
 
 nomi = open(path_to_file, 'r')
 for line in nomi:
-    name = line.strip().upper()
+    if (len(line) < 22):
+        name = line.strip().upper()
 
-    datas = {
-        'name_lastname': name,
-        'Text1': name
-    }
+        datas = {
+            'name_lastname': name,
+            'Text1': name
+        }
 #pypdftk.dump_data_fields('/Users/luciano/Downloads/graziano/card.pdf')
 #print(i)
-    pypdftk.fill_form(path_to_pdf, datas, 'gen/card_' + name.replace(' ', '_') + '.pdf')
-    print(name + " -> ok!")
-
+        pypdftk.fill_form(path_to_pdf, datas, 'gen/card_' + name.replace(' ', '_') + '.pdf')
+        #print(name + " -> ok!")
+    else:
+        print( line.strip() + "\t\t is too long")
