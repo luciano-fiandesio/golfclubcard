@@ -1,5 +1,11 @@
 # Golf card generator
 
+## Requisiti
+
+`python3`
+`brew`
+`pip3`
+
 ## Installazione
 
 ```
